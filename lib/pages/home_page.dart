@@ -2,7 +2,6 @@ import 'package:dev01/change_name_card.dart';
 import 'package:dev01/my_drawer.dart';
 import 'package:flutter/material.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
