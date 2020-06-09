@@ -1,3 +1,4 @@
+import 'package:dev01/utils/Constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +66,9 @@ class _LoginPageState extends State<LoginPage> {
                             color: Colors.orange,
                             textColor: Colors.white,
                             onPressed: (){
-                              Navigator.pushNamed(context, "/home");
+                              Constants.prefs.setBool("loggedIn", true);
+                              Navigator.pushReplacementNamed(context, "/home");
+                              //Navigator.pushNamed(context, "/home");
                              /* Navigator.push(
                                   context,
                                   MaterialPageRoute(

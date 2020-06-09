@@ -1,12 +1,18 @@
 import 'package:dev01/pages/home_page.dart';
 import 'package:dev01/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main(){
+import 'utils/Constants.dart';
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Constants.prefs = await SharedPreferences.getInstance();
+
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: "Awesome App",
-    home: LoginPage(),
+    home: Constants.prefs.getBool("loggedIn") == true ? HomePage() : LoginPage(),
     theme: ThemeData(
       primarySwatch: Colors.purple,
     ),
